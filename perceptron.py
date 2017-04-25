@@ -16,13 +16,13 @@ class Perceptron(object):
         for _ in range(self.epochs):
             total_error = 0
 
-            for xi, target in zip(X, y):
-                error = target - self.predict(xi)
+            for xi, answer in zip(X, y):
+                error = answer - self.predict(xi)
 
                 for i, item in enumerate(self.weights):
                     self.weights[i] += self.learning_rate * error * xi[i]
 
-                total_error += abs(target - self.predict(xi))
+                total_error += abs(answer - self.predict(xi))
 
             self.errors_.append(total_error)
             print 'Epoch: %d, Error: %f' % (_, total_error)
